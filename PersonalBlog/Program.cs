@@ -29,7 +29,11 @@ internal class Program
 
 		builder.WebHost.ConfigureKestrel(serverOptions =>
 		{
-			serverOptions.ListenAnyIP(5063);
+			serverOptions.ListenAnyIP(5064); // HTTP
+			serverOptions.ListenAnyIP(7115, listenOptions =>
+			{
+				listenOptions.UseHttps();     //Now HTTPS works on port 7115
+			});
 		});
 
 		var config = builder.Configuration;

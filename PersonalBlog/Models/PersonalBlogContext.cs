@@ -53,8 +53,8 @@ namespace PersonalBlog.Models
 
             // Set up your connection string (adjust to match your config)
             var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile("appsettings.development.json")
                 .Build();
 
             var connectionString = configuration.GetConnectionString("PersonalBlogContextConnection");
